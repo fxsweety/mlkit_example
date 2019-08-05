@@ -24,7 +24,7 @@ class FaceDetection : BaseActivity() {
         setContentView(R.layout.activity_still_image)
         imagePreview = findViewById(R.id.image_preview)
         textView = findViewById(R.id.result_text)
-        findViewById<ImageButton>(R.id.photo_camera_button)?.setOnClickListener { takePhoto() }
+        takePhoto()
     }
 
     fun takePhoto() {

@@ -11,8 +11,39 @@
     <Button
             android:id="@+id/face_detection"
             android:layout_width="150dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:text="face detection"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+    <Button
+            android:id="@+id/vision_edge"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="AutoML Vision Edge"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+
+    <Button
+            android:id="@+id/translate"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="TRANSLATE"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+
+    <Button
+            android:id="@+id/bar_code"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="BAR CODE SCAN"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+
+    <Button
+            android:id="@+id/smart_reply"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:text="SMART REPLY"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"/>
 

@@ -24,6 +24,9 @@
 
         <activity android:name=".StillImageActivity"/>
         <activity android:name=".FaceDetection"/>
+        <activity android:name=".TranslateActivity"/>
+        <activity android:name=".BarCodeScanning"/>
+        <activity android:name=".SmartReplyActivity"/>
 
         <provider
                 android:name="androidx.core.content.FileProvider"

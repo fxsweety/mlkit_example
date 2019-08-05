@@ -165,12 +165,12 @@ internal constructor(context: Context) {
     private const val LOCAL_MODEL_PATH = "automl/manifest.json"
 
     /** Name of the remote model in Firebase ML Kit server.  */
-    private const val REMOTE_MODEL_NAME = "devices_labweek1"
+    private const val REMOTE_MODEL_NAME = "fruits_mlexample"
 
     /** Number of results to show in the UI.  */
     private const val RESULTS_TO_SHOW = 3
 
     /** Min probability to classify the given image as belong to a category.  */
-    private const val CONFIDENCE_THRESHOLD = 0.6f
+    private const val CONFIDENCE_THRESHOLD = 0.4f
   }
 }

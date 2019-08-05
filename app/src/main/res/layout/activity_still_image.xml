@@ -12,16 +12,6 @@
         android:background="@color/light_background"
         android:orientation="horizontal" >
 
-
-        <ImageButton
-            android:id="@+id/photo_camera_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/ic_photo_camera"
-            android:backgroundTint="@color/control_background"
-        />
-
     </LinearLayout>
 
     <ImageView
@@ -29,15 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
-        android:layout_above="@id/next_image_button"/>
+        android:layout_above="@id/footer"/>
 
-    <Button
-        android:id="@+id/next_image_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/footer"
-        android:layout_centerHorizontal="true"
-        android:text="Next"/>
 
     <FrameLayout
         android:id="@+id/footer"

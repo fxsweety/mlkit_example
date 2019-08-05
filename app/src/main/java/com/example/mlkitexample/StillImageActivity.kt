@@ -58,8 +58,7 @@ class StillImageActivity : BaseActivity() {
     setContentView(R.layout.activity_still_image)
     imagePreview = findViewById(R.id.image_preview)
     textView = findViewById(R.id.result_text)
-    findViewById<ImageButton>(R.id.photo_camera_button)?.setOnClickListener { takePhoto() }
-    findViewById<Button>(R.id.next_image_button)?.setOnClickListener { clickNextImage() }
+    takePhoto()
     // Get list of bundled images.
 //    bundledImageList = resources.getStringArray(R.array.image_name_array)
 
@@ -106,12 +105,6 @@ class StillImageActivity : BaseActivity() {
           classifyImage(it.bitmap)
         }
       }
-      REQUEST_PHOTO_LIBRARY -> {
-        val selectedImageUri = data?.data ?: return
-        FirebaseVisionImage.fromFilePath(this, selectedImageUri).also {
-          classifyImage(it.bitmap)
-        }
-      }
     }
   }
 
@@ -125,32 +118,6 @@ class StillImageActivity : BaseActivity() {
     // Show image on screen.
     imagePreview?.setImageBitmap(bitmap)
 
-    val image = FirebaseVisionImage.fromBitmap(bitmap)
-    val options = FirebaseVisionFaceDetectorOptions.Builder()
-            .setClassificationMode(FirebaseVisionFaceDetectorOptions.ACCURATE)
-            .setLandmarkMode(FirebaseVisionFaceDetectorOptions.ALL_LANDMARKS)
-            .setClassificationMode(FirebaseVisionFaceDetectorOptions.ALL_CLASSIFICATIONS)
-            .setMinFaceSize(0.15f)
-            .enableTracking()
-            .build()
-    val detector = FirebaseVision.getInstance()
-            .getVisionFaceDetector(options)
-
-    val result = detector.detectInImage(image)
-            .addOnSuccessListener { faces ->
-              // Task completed successfully
-              // ...
-              if(faces.isEmpty()) {
-                textView?.text = "No Face Detected"
-              } else {
-                textView?.text = "Face Detected"
-              }
-            }
-            .addOnFailureListener {
-              // Task failed with an exception
-              // ...
-
-            }
 
     // Classify image.
     classifier?.classifyFrame(bitmap)?.
@@ -165,18 +132,10 @@ class StillImageActivity : BaseActivity() {
       }
   }
 
-  private fun chooseFromLibrary() {
-    val intent = Intent(Intent.ACTION_PICK)
-    intent.type = "image/*"
-
-    // Only accept JPEG or PNG format.
-    val mimeTypes = arrayOf("image/jpeg", "image/png")
-    intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
-
-    startActivityForResult(intent, REQUEST_PHOTO_LIBRARY)
-  }
 
   private fun takePhoto() {
+
+
     Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
       // Ensure that there's a camera activity to handle the intent.
       takePictureIntent.resolveActivity(packageManager)?.also {
@@ -202,22 +161,6 @@ class StillImageActivity : BaseActivity() {
     }
   }
 
-  private fun clickNextImage() {
-//    val imageList = bundledImageList
-//    if (imageList.isNullOrEmpty()) { return }
-//
-//    currentImageIndex = (currentImageIndex + 1) % imageList.size
-//    classifyBundledImage(currentImageIndex)
-    //TODO : Launch App bundle
-
-    val intent = Intent(this, MainActivity::class.java)
-    if (textView?.text?.contains("xCam2") ?: false) {
-      intent.putExtra("key", "xCam2")
-    } else if (textView?.text?.contains("Hue") ?: false) {
-      intent.putExtra("key", "Hue")
-    }
-    startActivity(intent)
-  }
 
   private fun classifyBundledImage(index: Int) {
     val imageList = bundledImageList

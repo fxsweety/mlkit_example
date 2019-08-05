@@ -15,5 +15,21 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FaceDetection::class.java)
             startActivity(intent)
         }
+        vision_edge?.setOnClickListener{
+            val intent = Intent(this, StillImageActivity::class.java)
+            startActivity(intent)
+        }
+        translate?.setOnClickListener{
+            val intent = Intent(this, TranslateActivity ::class.java)
+            startActivity(intent)
+        }
+        bar_code?.setOnClickListener{
+            val intent = Intent(this, BarCodeScanning::class.java)
+            startActivity(intent)
+        }
+        smart_reply?.setOnClickListener{
+            val intent = Intent(this, SmartReplyActivity::class.java)
+            startActivity(intent)
+        }
         }
 }
