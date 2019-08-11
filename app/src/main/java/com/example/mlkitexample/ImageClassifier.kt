@@ -165,7 +165,7 @@ internal constructor(context: Context) {
     private const val LOCAL_MODEL_PATH = "automl/manifest.json"
 
     /** Name of the remote model in Firebase ML Kit server.  */
-    private const val REMOTE_MODEL_NAME = "fruits_mlexample"
+    private const val REMOTE_MODEL_NAME = "fruits_ml_example"
 
     /** Number of results to show in the UI.  */
     private const val RESULTS_TO_SHOW = 3
